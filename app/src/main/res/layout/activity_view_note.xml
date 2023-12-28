@@ -9,7 +9,7 @@
     tools:context=".ViewNote">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/backButton"
+        android:id="@+id/back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -23,7 +23,7 @@
         app:srcCompat="@drawable/ic_outline_arrow_back_24" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/deleteNote"
+        android:id="@+id/delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -37,7 +37,7 @@
         app:srcCompat="@drawable/ic_outline_delete" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/editNote"
+        android:id="@+id/edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -45,7 +45,7 @@
         android:onClick="edit"
         app:borderWidth="0dp"
         app:elevation="0dp"
-        app:layout_constraintEnd_toStartOf="@+id/deleteNote"
+        app:layout_constraintEnd_toStartOf="@+id/delete"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_outline_create" />
 
@@ -62,7 +62,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editNote">
+        app:layout_constraintTop_toBottomOf="@+id/save">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -70,7 +70,7 @@
             android:background="@color/shadeindigo">
 
             <TextView
-                android:id="@+id/notetitle"
+                android:id="@+id/title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
@@ -87,7 +87,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/notebody"
+                android:id="@+id/body"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_marginStart="24dp"
@@ -105,7 +105,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/notetitle" />
+                app:layout_constraintTop_toBottomOf="@+id/title" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

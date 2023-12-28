@@ -9,20 +9,22 @@
     tools:context=".NewNote">
 
     <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/newnotetitle"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_margin="8dp"
-        android:hint="Title"
-        android:textSize="30sp"
-        android:gravity="center"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:background="@color/scrollback"
-        android:id="@+id/newnotetitlebody"
-        />
+        android:gravity="center"
+        android:hint="Title"
+        android:textSize="30sp" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/newnotetextbody"
+        android:id="@+id/newnotebody"
         android:layout_width="match_parent"
-        android:layout_below="@id/newnotetitlebody"
+        android:layout_below="@id/newnotetitle"
         android:layout_height="match_parent"
         android:layout_marginStart="8dp"
         android:textSize="30sp"
