@@ -24,6 +24,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat.startActivity
 import androidx.core.view.get
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cloudnotes.R
@@ -39,7 +40,7 @@ import me.example.cloudnotes.entities.Note
  * @param notes Notes that should be added into view
  * @param activity Activity where RecyclerView exists
  */
-class NotesAdapter(private val notes: Array<Note>, private val activity: Activity): RecyclerView.Adapter<NotesAdapter.NotesHolder>() {
+class NotesAdapter(private val notes: ArrayList<Note>, private val activity: Activity): RecyclerView.Adapter<NotesAdapter.NotesHolder>() {
     /**
      * RecyclerView holder for notes's cards
      * @param cardView Card to be added into view holder
@@ -67,7 +68,8 @@ class NotesAdapter(private val notes: Array<Note>, private val activity: Activit
         holder.cardView.setOnClickListener {
 
            // NoteActionManager.getInstance().call(Action.SHOW, notes[position])
-            activity.startActivity(Intent(activity, ViewNote::class.java), ActivityOptions.makeSceneTransitionAnimation(activity).toBundle())
+            activity.startActivity(Intent(activity, ViewNote::class.java).putExtra("id",notes[position].getId().toString()), ActivityOptions.makeSceneTransitionAnimation(activity).toBundle())
+
         }
     }
 

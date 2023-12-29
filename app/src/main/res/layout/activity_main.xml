@@ -14,8 +14,8 @@
        android:layout_alignParentTop="true"
        android:id="@+id/searchbar"/>
 
-    <ScrollView
-        android:id="@+id/scrollview"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycylerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/searchbar"

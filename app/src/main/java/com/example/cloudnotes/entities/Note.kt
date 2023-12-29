@@ -27,7 +27,7 @@ class Note {
     private var title: String
     private var body: String
     private var id:String
-    private var time: Long
+
 
     /**
      * @param title Note title
@@ -40,12 +40,7 @@ class Note {
      * @param value Note content
      * @param color Color in int format
      */
-    constructor(title: String, body: String, id:String) {
-        this.title = title
-        this.body = body
-        this.id = id
-        time = System.currentTimeMillis()
-    }
+
 
     /**
      * @param title Note title
@@ -53,11 +48,11 @@ class Note {
      * @param color Color in int format
      * @param time Time in Long format
      */
-    constructor(title: String, body: String, id:String, time: Long) {
+    constructor(title: String, body: String, id:String) {
         this.title = title
         this.body = body
         this.id = id
-        this.time = time
+
     }
 
     /**
@@ -92,10 +87,7 @@ class Note {
      * @param time
      * @return Object of Note type
      */
-    fun setTime(time: Long): Note {
-        this.time = time
-        return this
-    }
+
     fun setId(id: String): Note {
         this.id = id
         return this
@@ -122,9 +114,7 @@ class Note {
     /**
      * @return Note creation time in Long format
      */
-    fun getTime(): Long {
-        return time
-    }
+
     fun getId(): String {
         return id
     }
