@@ -19,6 +19,7 @@ package me.argraur.notes.adapters
 import android.app.Activity
 import android.app.ActivityOptions
 import android.content.Intent
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
@@ -33,6 +34,7 @@ import com.example.cloudnotes.ViewNote
 import com.google.android.material.card.MaterialCardView
 
 import me.example.cloudnotes.entities.Note
+import java.util.Random
 
 
 /**
@@ -64,7 +66,9 @@ class NotesAdapter(private val notes: ArrayList<Note>, private val activity: Act
         ((holder.cardView[0] as ConstraintLayout)[0] as TextView).text = title
         ((holder.cardView[0] as ConstraintLayout)[1] as TextView).text = body
         //Set Random Colour For Each Card Generated
-       // holder.cardView.setCardBackgroundColor(notes[position].getColor())
+        val rnd = Random()
+        val color: Int = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256))
+        holder.cardView.setBackgroundColor(color)
         holder.cardView.setOnClickListener {
 
            // NoteActionManager.getInstance().call(Action.SHOW, notes[position])

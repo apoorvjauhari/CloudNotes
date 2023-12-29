@@ -65,10 +65,16 @@ class ViewNote : AppCompatActivity() {
             edit.visibility = View.GONE
         })
         delete.setOnClickListener(View.OnClickListener {
+            //Delete the Particular ID child and startIntent to MAinActivity.
+            ref.removeValue()
+            startActivity(Intent(this, MainActivity::class.java))
 
         })
         save.setOnClickListener(View.OnClickListener {
-
+            //Save will update the particular child. and startIntent to MAinActivity.
+            ref.child("title").setValue(titleedit.text.toString())
+            ref.child("body").setValue(bodyedit.text.toString())
+            startActivity(Intent(this, MainActivity::class.java))
         })
     }
 
