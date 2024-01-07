@@ -15,12 +15,6 @@ import me.argraur.notes.adapters.NotesAdapter
 import me.example.cloudnotes.entities.Note
 
 class MainActivity : AppCompatActivity() {
-    val addnote:FloatingActionButton = findViewById(R.id.addnote)
-    val scrollview:RecyclerView = findViewById(R.id.recycylerview)
-
-    var recyclerView: RecyclerView = findViewById(R.id.recycylerview)
-    lateinit var list:ArrayList<Note>
-    lateinit var notesAdapter: NotesAdapter
 
 
 
@@ -28,7 +22,14 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        var ref = FirebaseDatabase.getInstance().getReference("Notes")
+        val addnote:FloatingActionButton = findViewById(R.id.addnote)
+        val scrollview:RecyclerView = findViewById(R.id.recycylerview)
+
+        var recyclerView: RecyclerView = findViewById(R.id.recycylerview)
+        lateinit var list:ArrayList<Note>
+        lateinit var notesAdapter: NotesAdapter
+
+        var ref = FirebaseDatabase.getInstance().getReference("notes")
         list =  ArrayList<Note>()
 
         recyclerView.layoutManager = LinearLayoutManager(this)

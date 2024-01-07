@@ -8,7 +8,7 @@
     android:fitsSystemWindows="true"
     tools:context=".NewNote">
 
-    <com.google.android.material.textfield.TextInputEditText
+    <EditText
         android:id="@+id/newnotetitle"
         android:layout_width="match_parent"
         android:layout_height="100dp"
@@ -21,7 +21,7 @@
         android:hint="Title"
         android:textSize="30sp" />
 
-    <com.google.android.material.textfield.TextInputEditText
+    <EditText
         android:id="@+id/newnotebody"
         android:layout_width="match_parent"
         android:layout_below="@id/newnotetitle"
@@ -40,12 +40,14 @@
         android:id="@+id/delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_marginEnd="@dimen/fab_margin"
-        android:layout_margin="16dp"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        app:srcCompat="@android:drawable/ic_delete" />
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom|end"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:srcCompat="@android:drawable/arrow_up_float" />
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/save"
         android:layout_width="wrap_content"
