@@ -2,9 +2,10 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="cream">#FBF1F1</color>
     <color name="indigo">#0EEDB9</color>
     <color name="shadeindigo">#A60EEDB9</color>
     <color name="scrollback">#00BCD4</color>
     <color name="newnote">#FF5722</color>
-    <color name="button">#FF9800</color>
+    <color name="button">#FAC26F</color>
 </resources>

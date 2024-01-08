@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.TextView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.database.DataSnapshot
@@ -24,9 +25,9 @@ class ViewNote : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_view_note)
-        val back:FloatingActionButton = findViewById(R.id.back)
-        val edit:FloatingActionButton = findViewById(R.id.edit)
-        val delete:FloatingActionButton = findViewById(R.id.delete)
+        val back:ImageButton = findViewById(R.id.back)
+        val edit: ImageButton = findViewById(R.id.edit)
+        val delete:ImageButton = findViewById(R.id.delete)
         val save:FloatingActionButton = findViewById(R.id.save)
         val titleedit:EditText = findViewById(R.id.titleedit)
         val bodyedit:EditText = findViewById(R.id.bodyedit)

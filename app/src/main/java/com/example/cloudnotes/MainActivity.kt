@@ -2,8 +2,13 @@ package com.example.cloudnotes
 
 import NotesAdapter
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
+import android.view.View
+import android.widget.ImageButton
+import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -24,7 +29,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val addnote:FloatingActionButton = findViewById(R.id.addnote)
+        val progrss:ProgressBar = findViewById(R.id.progressb)
+        val addnote: ImageButton = findViewById(R.id.addnote)
+
 
         var recyclerView: RecyclerView = findViewById(R.id.recycylerview)
         lateinit var list:ArrayList<Note>

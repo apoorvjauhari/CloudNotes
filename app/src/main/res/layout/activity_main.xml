@@ -4,44 +4,50 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/indigo"
+    android:background="@color/cream"
     android:fitsSystemWindows="true"
     tools:context=".MainActivity">
-
-   <com.google.android.material.search.SearchBar
+   <ProgressBar
+       android:layout_width="60dp"
+       android:layout_height="60dp"
+       android:visibility="gone"
+       android:id="@+id/progressb"
+       android:layout_centerHorizontal="true"
+       android:layout_centerVertical="true"/>
+   <com.google.android.material.appbar.MaterialToolbar
        android:layout_width="match_parent"
        android:layout_height="50dp"
        android:layout_alignParentTop="true"
-       android:id="@+id/searchbar"/>
+       android:id="@+id/toolbar"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/searchbar">
+        android:layout_below="@id/toolbar">
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycylerview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/searchbar"
+            android:layout_below="@id/toolbar"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
-            android:background="@color/scrollback" />
+            android:background="@color/cream" />
     </LinearLayout>
 
 
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <ImageButton
         android:id="@+id/addnote"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="@dimen/fab_margin"
 
         android:layout_marginBottom="16dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        android:background="@drawable/addbutton" />
 
 </RelativeLayout>
