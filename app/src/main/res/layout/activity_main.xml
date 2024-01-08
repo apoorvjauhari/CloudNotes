@@ -14,16 +14,21 @@
        android:layout_alignParentTop="true"
        android:id="@+id/searchbar"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycylerview"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/searchbar"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@color/scrollback" />
+        android:layout_below="@id/searchbar">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycylerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/searchbar"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@color/scrollback" />
+    </LinearLayout>
 
 
 

@@ -1,5 +1,6 @@
 package com.example.cloudnotes
 
+import NotesAdapter
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -11,7 +12,8 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
-import me.argraur.notes.adapters.NotesAdapter
+
+
 import me.example.cloudnotes.entities.Note
 
 class MainActivity : AppCompatActivity() {
@@ -23,35 +25,48 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val addnote:FloatingActionButton = findViewById(R.id.addnote)
-        val scrollview:RecyclerView = findViewById(R.id.recycylerview)
 
         var recyclerView: RecyclerView = findViewById(R.id.recycylerview)
         lateinit var list:ArrayList<Note>
         lateinit var notesAdapter: NotesAdapter
 
-        var ref = FirebaseDatabase.getInstance().getReference("notes")
+
         list =  ArrayList<Note>()
 
         recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView .setHasFixedSize(true)
 
-        
 
-        val menuListener = object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-               for(data in dataSnapshot.children){
-                   list.clear()
-                   val notedata = data.getValue(Note::class.java)
-                   list.add(notedata!!)
-                   notesAdapter = NotesAdapter(list,this@MainActivity)
-                   recyclerView.adapter = notesAdapter
-               }
+        var dbref = FirebaseDatabase.getInstance().getReference("Notes")
+
+        dbref.addValueEventListener(object : ValueEventListener{
+
+            override fun onDataChange(snapshot: DataSnapshot) {
+
+                if (snapshot.exists()){
+
+                    for (userSnapshot in snapshot.children){
+
+
+                        val user = userSnapshot.getValue(Note::class.java)
+                        list.add(user!!)
+
+                    }
+
+                    recyclerView.adapter = NotesAdapter(list)
+
+
+                }
 
             }
-            override fun onCancelled(databaseError: DatabaseError) {
-                // handle error
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
             }
-        }
-        ref.addListenerForSingleValueEvent(menuListener)
+
+
+        })
+
 
 
 

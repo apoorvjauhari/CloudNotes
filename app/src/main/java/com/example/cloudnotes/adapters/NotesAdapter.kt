@@ -1,84 +1,69 @@
-/*
- * Copyright (C) 2020 Arseniy Graur
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 
-package me.argraur.notes.adapters
 
-import android.app.Activity
-import android.app.ActivityOptions
+
+
+import android.content.Context
 import android.content.Intent
-import android.graphics.Color
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.content.ContextCompat.startActivity
-import androidx.core.view.get
+
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cloudnotes.R
 import com.example.cloudnotes.ViewNote
-
-import com.google.android.material.card.MaterialCardView
-
 import me.example.cloudnotes.entities.Note
-import java.util.Random
 
 
-/**
- * RecyclerView adapter for notes
- * @param notes Notes that should be added into view
- * @param activity Activity where RecyclerView exists
- */
-class NotesAdapter(private val notes: ArrayList<Note>, private val activity: Activity): RecyclerView.Adapter<NotesAdapter.NotesHolder>() {
-    /**
-     * RecyclerView holder for notes's cards
-     * @param cardView Card to be added into view holder
-     */
-    class NotesHolder(val cardView: MaterialCardView): RecyclerView.ViewHolder(cardView)
 
-    /**
-     * @see RecyclerView.Adapter.onCreateViewHolder
-     */
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotesHolder {
-        return NotesHolder(LayoutInflater.from(parent.context).inflate(R.layout.note_card, parent, false) as MaterialCardView)
+ class NotesAdapter(private val userList : ArrayList<Note>) : RecyclerView.Adapter<NotesAdapter.MyViewHolder>() {
+      lateinit var context:Context
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
+
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.note_card,
+            parent,false)
+            context = parent.context
+        return MyViewHolder(itemView)
+
     }
 
-    /**
-     * Adds data into cards based on given note's position
-     * @see RecyclerView.Adapter.onBindViewHolder
-     */
-    override fun onBindViewHolder(holder: NotesHolder, position: Int) {
-        val title = notes[position].getTitle()
-        val body = notes[position].getBody()
-        ((holder.cardView[0] as ConstraintLayout)[0] as TextView).text = title
-        ((holder.cardView[0] as ConstraintLayout)[1] as TextView).text = body
-        //Set Random Colour For Each Card Generated
-        val rnd = Random()
-        val color: Int = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256))
-        holder.cardView.setBackgroundColor(color)
-        holder.cardView.setOnClickListener {
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
-           // NoteActionManager.getInstance().call(Action.SHOW, notes[position])
-            activity.startActivity(Intent(activity, ViewNote::class.java).putExtra("id",notes[position].getId().toString()), ActivityOptions.makeSceneTransitionAnimation(activity).toBundle())
+        val currentitem = userList[position]
 
-        }
+        holder.title.text = currentitem.getTitle()
+        holder.body.text = currentitem.getBody()
+        holder.holdr.setOnClickListener(View.OnClickListener {
+
+            val intent = Intent(context, ViewNote::class.java)
+            intent.putExtra("id", currentitem.getId())
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+
+            context.startActivity(intent)
+        })
+
+
+
+
     }
 
-    /**
-     * @see RecyclerView.Adapter.getItemCount
-     */
-    override fun getItemCount() = notes.size
+    override fun getItemCount(): Int {
+
+        return userList.size
+    }
+
+
+    class MyViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
+
+        val title : TextView = itemView.findViewById(R.id.title)
+        val body : TextView = itemView.findViewById(R.id.body)
+        val holdr: ConstraintLayout = itemView.findViewById(R.id.layout)
+
+
+
+
+    }
+
 }

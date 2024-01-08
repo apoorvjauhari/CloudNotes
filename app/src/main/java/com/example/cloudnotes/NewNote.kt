@@ -25,27 +25,29 @@ class NewNote : AppCompatActivity() {
         val notebody:EditText = findViewById(R.id.newnotebody)
 
 
-        database = Firebase.database.reference
-        val title:String = notetitle.editableText.toString()
-        val body:String = notebody.editableText.toString()
+        database = Firebase.database.reference.child("Notes")
+
         val id:String = database.push().key.toString()
+        database = Firebase.database.reference.child("Notes").child(id)
+
+        save.setOnClickListener{
+            val title:String = notetitle.getText().toString()
+            val body:String = notebody.getText().toString()
+                writeNewNote(id,body,title)
+            val toast = Toast.makeText(applicationContext, "Successfully Added Notes", Toast.LENGTH_LONG)
+            toast.show()
+            startActivity(Intent(this, MainActivity::class.java))
+        }
         delete.setOnClickListener(View.OnClickListener {
             val toast = Toast.makeText(applicationContext, "Note Discarded", Toast.LENGTH_SHORT)
             toast.show()
             startActivity(Intent(this, MainActivity::class.java))
         })
-        save.setOnClickListener{
-                writeNewNote(id,title,body)
-            val toast = Toast.makeText(applicationContext, "Successfully Added Notes", Toast.LENGTH_LONG)
-            toast.show()
-            startActivity(Intent(this, MainActivity::class.java))
-        }
-
 
     }
-    private fun writeNewNote(id: String, title: String, body: String) {
-        val note = Note(title, body,id)
+    private fun writeNewNote(id:String,body: String, title: String) {
+        val note = Note(id,body,title)
 
-        database.child("notes").child(id).setValue(note)
+        database.setValue(note)
     }
 }

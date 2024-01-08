@@ -18,30 +18,30 @@ import com.google.firebase.database.getValue
 import me.example.cloudnotes.entities.Note
 
 class ViewNote : AppCompatActivity() {
-    val back:FloatingActionButton = findViewById(R.id.back)
-    val edit:FloatingActionButton = findViewById(R.id.edit)
-    val delete:FloatingActionButton = findViewById(R.id.delete)
-    val save:FloatingActionButton = findViewById(R.id.save)
-    val titleedit:EditText = findViewById(R.id.titleedit)
-    val bodyedit:EditText = findViewById(R.id.bodyedit)
-    val titletext:TextView = findViewById(R.id.titletextview)
-    val bodytext:TextView = findViewById(R.id.bodytextview)
-    val id=intent.getStringExtra("id").toString()
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_view_note)
-
+        val back:FloatingActionButton = findViewById(R.id.back)
+        val edit:FloatingActionButton = findViewById(R.id.edit)
+        val delete:FloatingActionButton = findViewById(R.id.delete)
+        val save:FloatingActionButton = findViewById(R.id.save)
+        val titleedit:EditText = findViewById(R.id.titleedit)
+        val bodyedit:EditText = findViewById(R.id.bodyedit)
+        val titletext:TextView = findViewById(R.id.titletextview)
+        val bodytext:TextView = findViewById(R.id.bodytextview)
+        val id=intent.getStringExtra("id").toString()
         var ref = FirebaseDatabase.getInstance().getReference("Notes").child(id)
         val postListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 // Get Post object and use the values to update the UI
                 val note = dataSnapshot.getValue<Note>()
-                titleedit.setText(note!!.getTitle().toString())
-                bodyedit.setText(note!!.getBody().toString())
-                titletext.setText(note!!.getTitle().toString())
-                bodytext.setText(note!!.getBody().toString())
+                titleedit.setText(note?.getTitle().toString())
+                bodyedit.setText(note?.getBody().toString())
+                titletext.setText(note?.getTitle().toString())
+                bodytext.setText(note?.getBody().toString())
 
                 // ...
             }

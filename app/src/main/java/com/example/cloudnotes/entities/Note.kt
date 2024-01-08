@@ -16,106 +16,36 @@
 
 package me.example.cloudnotes.entities
 
-import android.graphics.Color
-import android.provider.BaseColumns
-
-/**
- * Note entity
- */
 class Note {
-    // Main variables
-    private var title: String
-    private var body: String
-    private var id:String
+    private var id: String? = null
+    private var title: String? = null
+    private var body: String? = null
 
-
-    /**
-     * @param title Note title
-     * @param value Note content
-     */
-
-
-    /**
-     * @param title Note title
-     * @param value Note content
-     * @param color Color in int format
-     */
-
-
-    /**
-     * @param title Note title
-     * @param value Note content
-     * @param color Color in int format
-     * @param time Time in Long format
-     */
-    constructor(title: String, body: String, id:String) {
+    constructor()
+    constructor( id: String?, body: String? ,title: String?) {
+        this.id = id
         this.title = title
         this.body = body
-        this.id = id
-
     }
 
-    /**
-     * Sets title and returns Note object
-     * @param title
-     * @return Object of Note type
-     */
-    fun setTitle(title: String): Note {
-        this.title = title
-        return this
-    }
-
-    /**
-     * Sets value and returns Note object
-     * @param value
-     * @return Object of Note type
-     */
-    fun setBody(body: String): Note {
-        this.body = body
-        return this
-    }
-
-    /**
-     * Sets color and returns Note object
-     * @param color
-     * @return Object of Note type
-     */
 
 
-    /**
-     * Sets time and returns Note object
-     * @param time
-     * @return Object of Note type
-     */
-
-    fun setId(id: String): Note {
-        this.id = id
-        return this
-    }
-
-    /**
-     * @return Note title
-     */
-    fun getTitle(): String {
+    fun getTitle(): String? {
         return title
     }
+    fun getId(): String? {
+        return id
+    }
 
-    /**
-     * @return Note content
-     */
-    fun getBody(): String {
+    fun setTitle(title: String?) {
+        this.title = title
+    }
+
+    fun getBody(): String? {
         return body
     }
 
-    /**
-     * @return Note color in int format
-     */
-
-    /**
-     * @return Note creation time in Long format
-     */
-
-    fun getId(): String {
-        return id
+    fun setBody(body: String?) {
+        this.body = body
     }
 }
