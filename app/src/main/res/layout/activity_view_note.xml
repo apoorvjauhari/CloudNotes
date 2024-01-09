@@ -52,8 +52,8 @@
         android:background="@drawable/editbutton" />
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/save"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_marginTop="16dp"
         android:clickable="true"
         android:visibility="gone"
@@ -63,7 +63,7 @@
         app:elevation="0dp"
         app:layout_constraintEnd_toStartOf="@+id/delete"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_outline_save" />
+        app:srcCompat="@drawable/savebutton" />
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/note_cardview"

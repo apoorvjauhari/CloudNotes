@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <item
+        android:id="@+id/select"
+        android:icon="@drawable/deletebutton"
+        android:title="Select"
+
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/search"
+        android:icon="@drawable/search_icon"
+        android:title="Search"
+
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/sort"
+        android:icon="@drawable/search_icon"
+        android:title="Sort"
+
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/view"
+        android:icon="@drawable/search_icon"
+        android:title="View"
+
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/more"
+        android:title="More"
+
+        app:showAsAction="never" />
+
+</menu>

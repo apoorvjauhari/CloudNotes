@@ -11,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.appbar.AppBarLayout
+import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -31,6 +33,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val progrss:ProgressBar = findViewById(R.id.progressb)
         val addnote: ImageButton = findViewById(R.id.addnote)
+        val topAppBar:MaterialToolbar = findViewById(R.id.topAppBar)
+        progrss.visibility = View.VISIBLE
 
 
         var recyclerView: RecyclerView = findViewById(R.id.recycylerview)
@@ -73,6 +77,7 @@ class MainActivity : AppCompatActivity() {
 
 
         })
+        progrss.visibility=View.GONE
 
 
 
@@ -80,6 +85,37 @@ class MainActivity : AppCompatActivity() {
         addnote.setOnClickListener{
             startActivity(Intent(this, NewNote::class.java))
 
+        }
+
+        topAppBar.setOnMenuItemClickListener { menuItem ->
+
+            when (menuItem.itemId) {
+                R.id.select -> {
+                    // Handle favorite icon press
+                    true
+                }
+
+                R.id.search -> {
+                    // Handle search icon press
+                    true
+                }
+
+                R.id.view -> {
+                    // Handle more item (inside overflow menu) press
+                    true
+                }
+                R.id.more -> {
+                    // Handle more item (inside overflow menu) press
+                    true
+                }
+                R.id.sort -> {
+                    // Handle more item (inside overflow menu) press
+                    true
+                }
+
+
+                else -> false
+            }
         }
 
 

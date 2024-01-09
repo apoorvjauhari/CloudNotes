@@ -7,5 +7,6 @@
     <color name="shadeindigo">#A60EEDB9</color>
     <color name="scrollback">#00BCD4</color>
     <color name="newnote">#FF5722</color>
-    <color name="button">#FAC26F</color>
+    <color name="button">#FFD698</color>
+    <color name="appbar">#FBB54C</color>
 </resources>

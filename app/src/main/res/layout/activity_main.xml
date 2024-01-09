@@ -14,16 +14,78 @@
        android:id="@+id/progressb"
        android:layout_centerHorizontal="true"
        android:layout_centerVertical="true"/>
-   <com.google.android.material.appbar.MaterialToolbar
+   <com.google.android.material.appbar.AppBarLayout
        android:layout_width="match_parent"
        android:layout_height="50dp"
+        android:background="@color/appbar"
        android:layout_alignParentTop="true"
-       android:id="@+id/toolbar"/>
+       android:id="@+id/toolbar">
+       <com.google.android.material.appbar.MaterialToolbar
+           android:id="@+id/topAppBar"
+           android:layout_width="match_parent"
+           android:layout_height="?attr/actionBarSize"
+           app:title="CloudNotes"
+           app:menu="@menu/top_bar"
+
+
+           app:liftOnScroll="true"
+           style="@style/Widget.MaterialComponents.Toolbar.Primary"
+           />
+   </com.google.android.material.appbar.AppBarLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/extratoolbar"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:weightSum="6"
+        android:layout_below="@id/toolbar">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button"
+            android:layout_width="30dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="20dp"
+            android:layout_weight="1"
+
+            android:textSize="10sp"
+            android:text="All" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button2"
+            android:layout_width="30dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="20dp"
+            android:textSize="7sp"
+            android:text="Office" />
+
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button4"
+            android:layout_width="30dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:textSize="7sp"
+            android:layout_marginEnd="20dp"
+
+            android:text="Home" />
+        <ImageButton
+            android:id="@+id/calendersort"
+            android:layout_width="15dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:textSize="8sp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/calendar"
+            android:text="Home" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/toolbar">
+        android:layout_below="@id/extratoolbar">
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycylerview"
             android:layout_width="match_parent"

@@ -7,15 +7,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
 
     android:padding="10dp"
-    android:layout_marginTop="20dp"
-    android:layout_marginEnd="25dp"
-    android:layout_marginStart="25dp"
-    android:layout_marginBottom="10dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginEnd="5dp"
+    android:layout_marginStart="5dp"
+    android:layout_marginBottom="5dp"
     app:cardCornerRadius="20dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="120dp"
         android:id="@+id/layout"
         android:layout_marginStart="2dp"
         android:layout_marginTop="2dp"
@@ -24,11 +24,12 @@
         <TextView
             android:id="@+id/title"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="25dp"
             android:gravity="left"
             android:background="@color/button"
             android:textSize="16sp"
             android:textStyle="bold"
+            android:paddingLeft="3dp"
             android:textColor="#121212"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -37,7 +38,7 @@
         <TextView
             android:id="@+id/body"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="95dp"
             android:gravity="left"
             android:background="@color/button"
             android:textColor="#121212"
@@ -45,6 +46,8 @@
             android:maxLines="3"
             android:maxLength="256"
             android:ellipsize="end"
+            android:paddingLeft="3dp"
+            android:paddingTop="5dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
